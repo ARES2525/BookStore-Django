@@ -1,0 +1,41 @@
+{% extends 'book/base.html' %}
+
+{% block content %}
+<h2>🛒 Your Cart</h2>
+
+{% if cart_items %}
+  <table style="width: 100%; border-collapse: collapse; margin-bottom: 1rem;">
+    <thead>
+      <tr style="background-color: #f1f1f1;">
+        <th align="left">Book</th>
+        <th align="center">Price</th>
+        <th align="center">Quantity</th>
+        <th align="center">Actions</th>
+        <th align="right">Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in cart_items %}
+        <tr style="border-bottom: 1px solid #ddd;">
+          <td>{{ item.book.title }}</td>
+          <td align="center">₹{{ item.book.price }}</td>
+          <td align="center">{{ item.quantity }}</td>
+          <td align="center">
+            <a href="{% url 'add_to_cart' item.book.id %}" class="btn">+</a>
+            <a href="{% url 'decrease_cart' item.book.id %}" class="btn">−</a>
+            <a href="{% url 'remove_from_cart' item.book.id %}" class="btn" style="background-color: #dc3545;">Remove</a>
+          </td>
+          <td align="right">₹{{ item.book.price|floatformat:2|floatformat:2|add:""|floatformat:2|mul:item.quantity }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <p style="text-align: right; font-size: 1.1rem;"><strong>Total:</strong> ₹{{ total_price }}</p>
+  <a href="{% url 'book_list' %}" class="btn">← Back to Books</a>
+{% else %}
+  <p>Your cart is empty.</p>
+  <a href="{% url 'book_list' %}" class="btn">Browse Books</a>
+{% endif %}
+
+{% endblock %}

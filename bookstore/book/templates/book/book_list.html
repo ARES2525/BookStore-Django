@@ -1,0 +1,89 @@
+{% extends 'book/base.html' %}
+
+{% block content %}
+<h2>📚 Top Book Picks</h2>
+
+<div style="display: flex; flex-direction: column; gap: 1rem;">
+
+  <div style="border: 1px solid #ddd; border-radius: 8px; padding: 1rem;">
+    <h3>The Alchemist</h3>
+    <p><strong>Author:</strong> Paulo Coelho<br>
+       <strong>Price:</strong> ₹299<br>
+       <strong>Available:</strong> 12 copies</p>
+    <a href="{% url 'add_to_cart' 1 %}" class="btn">Add to Cart</a>
+  </div>
+
+  <div style="border: 1px solid #ddd; border-radius: 8px; padding: 1rem;">
+    <h3>Atomic Habits</h3>
+    <p><strong>Author:</strong> James Clear<br>
+       <strong>Price:</strong> ₹399<br>
+       <strong>Available:</strong> 18 copies</p>
+    <a href="{% url 'add_to_cart' 2 %}" class="btn">Add to Cart</a>
+  </div>
+
+  <div style="border: 1px solid #ddd; border-radius: 8px; padding: 1rem;">
+    <h3>Ikigai</h3>
+    <p><strong>Author:</strong> Hector Garcia, Francesc Miralles<br>
+       <strong>Price:</strong> ₹349<br>
+       <strong>Available:</strong> 10 copies</p>
+    <a href="{% url 'add_to_cart' 3 %}" class="btn">Add to Cart</a>
+  </div>
+
+  <div style="border: 1px solid #ddd; border-radius: 8px; padding: 1rem;">
+    <h3>Harry Potter and the Philosopher’s Stone</h3>
+    <p><strong>Author:</strong> J.K. Rowling<br>
+       <strong>Price:</strong> ₹450<br>
+       <strong>Available:</strong> 9 copies</p>
+    <a href="{% url 'add_to_cart' 4 %}" class="btn">Add to Cart</a>
+  </div>
+
+  <div style="border: 1px solid #ddd; border-radius: 8px; padding: 1rem;">
+    <h3>Rich Dad Poor Dad</h3>
+    <p><strong>Author:</strong> Robert Kiyosaki<br>
+       <strong>Price:</strong> ₹275<br>
+       <strong>Available:</strong> 20 copies</p>
+    <a href="{% url 'add_to_cart' 5 %}" class="btn">Add to Cart</a>
+  </div>
+
+  <div style="border: 1px solid #ddd; border-radius: 8px; padding: 1rem;">
+    <h3>Wings of Fire</h3>
+    <p><strong>Author:</strong> A.P.J. Abdul Kalam<br>
+       <strong>Price:</strong> ₹299<br>
+       <strong>Available:</strong> 7 copies</p>
+    <a href="{% url 'add_to_cart' 6 %}" class="btn">Add to Cart</a>
+  </div>
+
+  <div style="border: 1px solid #ddd; border-radius: 8px; padding: 1rem;">
+    <h3>The Power of Your Subconscious Mind</h3>
+    <p><strong>Author:</strong> Dr. Joseph Murphy<br>
+       <strong>Price:</strong> ₹199<br>
+       <strong>Available:</strong> 15 copies</p>
+    <a href="{% url 'add_to_cart' 7 %}" class="btn">Add to Cart</a>
+  </div>
+
+  <div style="border: 1px solid #ddd; border-radius: 8px; padding: 1rem;">
+    <h3>Think and Grow Rich</h3>
+    <p><strong>Author:</strong> Napoleon Hill<br>
+       <strong>Price:</strong> ₹225<br>
+       <strong>Available:</strong> 13 copies</p>
+    <a href="{% url 'add_to_cart' 8 %}" class="btn">Add to Cart</a>
+  </div>
+
+  <div style="border: 1px solid #ddd; border-radius: 8px; padding: 1rem;">
+    <h3>The Monk Who Sold His Ferrari</h3>
+    <p><strong>Author:</strong> Robin Sharma<br>
+       <strong>Price:</strong> ₹310<br>
+       <strong>Available:</strong> 11 copies</p>
+    <a href="{% url 'add_to_cart' 9 %}" class="btn">Add to Cart</a>
+  </div>
+
+  <div style="border: 1px solid #ddd; border-radius: 8px; padding: 1rem;">
+    <h3>1984</h3>
+    <p><strong>Author:</strong> George Orwell<br>
+       <strong>Price:</strong> ₹299<br>
+       <strong>Available:</strong> 8 copies</p>
+    <a href="{% url 'add_to_cart' 10 %}" class="btn">Add to Cart</a>
+  </div>
+
+</div>
+{% endblock %}

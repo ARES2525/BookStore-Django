@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>📚 Bookstore</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f4f4;
+    }
+
+    header {
+      background-color: #2c3e50;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+    }
+
+    header a {
+      color: white;
+      text-decoration: none;
+      margin-left: 1rem;
+      font-weight: bold;
+    }
+
+    header a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
+      background-color: white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      border-radius: 10px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #777;
+      margin-top: 2rem;
+    }
+
+    .btn {
+      padding: 0.4rem 0.8rem;
+      background-color: #3498db;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+      font-size: 0.9rem;
+    }
+
+    .btn:hover {
+      background-color: #2980b9;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div><strong>📚 Bookstore</strong></div>
+    <nav>
+      <a href="{% url 'book_list' %}">Books</a>
+      {% if user.is_authenticated %}
+        <a href="{% url 'cart' %}">🛒 View Cart</a>
+        <a href="{% url 'logout' %}" class="btn">Logout</a>
+      {% else %}
+        <a href="{% url 'login' %}" class="btn">Login</a>
+      {% endif %}
+    </nav>
+    <nav>
+        {% if user.is_authenticated %}
+            <a href="{% url 'book_list' %}">Books</a>
+            <a href="{% url 'cart' %}">🛒View Cart</a>
+            <a href="{% url 'logout' %}" class="btn">Logout</a>
+        {% else %}
+            <a href="{% url 'login' %}" class="btn">Login</a>
+        {% endif %}
+      </nav>
+      
+  </header>
+
+  <main>
+    {% block content %}
+    {% endblock %}
+  </main>
+
+  <footer>
+    &copy; {{ now|default:2025 }} Bookstore. All rights reserved.
+  </footer>
+
+</body>
+</html>
